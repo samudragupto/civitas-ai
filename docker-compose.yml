@@ -37,25 +37,6 @@ services:
     networks:
       - civitas_net
 
-  opensearch:
-    image: opensearchproject/opensearch:2.13.0
-    container_name: civitas_opensearch
-    environment:
-      - discovery.type=single-node
-      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=${OPENSEARCH_PASSWORD:-CivitasSearchAdmin2026!}
-      - "DISABLE_SECURITY_PLUGIN=true"
-    ports:
-      - "9200:9200"
-    volumes:
-      - opensearch_data:/usr/share/opensearch/data
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:9200 || exit 1"]
-      interval: 15s
-      timeout: 5s
-      retries: 5
-      start_period: 15s
-    networks:
-      - civitas_net
 
   backend:
     build:
@@ -66,7 +47,6 @@ services:
       PROJECT_NAME: "CivitasAI Human Civilization Forecasting Engine"
       DATABASE_URL: "postgresql+asyncpg://${POSTGRES_USER:-civitas_user}:${POSTGRES_PASSWORD:-CivitasSecurePassword2026!}@postgres:5432/${POSTGRES_DB:-civitas_prod}"
       REDIS_URL: "redis://redis:6379/0"
-      OPENSEARCH_URL: "http://opensearch:9200"
       PRIMARY_AI_MODEL: "${PRIMARY_AI_MODEL:-mock}"
       OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
       GEMINI_API_KEY: "${GEMINI_API_KEY:-}"
@@ -84,8 +64,6 @@ services:
       postgres:
         condition: service_healthy
       redis:
-        condition: service_healthy
-      opensearch:
         condition: service_healthy
     networks:
       - civitas_net
@@ -135,7 +113,6 @@ services:
 volumes:
   postgres_data:
   redis_data:
-  opensearch_data:
 
 networks:
   civitas_net:

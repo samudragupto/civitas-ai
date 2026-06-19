@@ -144,3 +144,8 @@ cache/
 # Docker overrides
 
 docker-compose.override.yml
+
+# temporary test files
+cloudfront.txt
+hello.txt
+docker-compose.yml.bak
