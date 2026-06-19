@@ -1,0 +1,146 @@
+# =========================
+
+# Python
+
+# =========================
+
+**pycache**/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv/
+
+# Pytest
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =========================
+
+# FastAPI / Backend
+
+# =========================
+
+backend/.env
+backend/.env.*
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================
+
+# Node.js / Next.js
+
+# =========================
+
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+
+# Logs
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+
+# Environment Files
+
+# =========================
+
+.env
+.env.*
+!.env.example
+
+# =========================
+
+# VS Code
+
+# =========================
+
+.vscode/
+.idea/
+
+# =========================
+
+# OS Files
+
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# =========================
+
+# AWS
+
+# =========================
+
+*.pem
+*.key
+
+# =========================
+
+# Docker
+
+# =========================
+
+docker-data/
+*.tar
+
+# =========================
+
+# Terraform
+
+# =========================
+
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+
+# =========================
+
+# Coverage
+
+# =========================
+
+coverage/
+.coverage
+coverage.xml
+
+# =========================
+
+# OpenSearch
+
+# =========================
+
+opensearch-data/
+
+# =========================
+
+# Project Specific
+
+# =========================
+
+test_civitas.db
+frontend/tsconfig.tsbuildinfo
+
+# Local uploads / exports
+
+exports/
+uploads/
+tmp/
+cache/
+
+# Docker overrides
+
+docker-compose.override.yml
